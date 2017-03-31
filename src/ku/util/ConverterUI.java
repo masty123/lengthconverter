@@ -12,7 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 /**
- * Length converter can convert various types of length and can convert from left to right or right to left . Your desire!.
+ * Unit converter can convert various types of unit and can convert from left to right or right to left . Your desire!.
  * @author Theeruth Borisuth
  *
  */
@@ -52,7 +52,7 @@ public class ConverterUI  {
 		//Creating panels.
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
-		
+
 		///Create text description for JRadioButton.
 		JRadioButton leftToRight = new JRadioButton("Left To Right");
 		JRadioButton rightToLeft = new JRadioButton("Right To Left");
@@ -63,15 +63,15 @@ public class ConverterUI  {
 		rightToLeft.addActionListener( directionControl );
 		leftToRight.setSelected(true);
 		isLeftToRight = true;
-		
+
 		ButtonGroup radioGroup = new ButtonGroup();
-		
+
 		//adding all unit with for each.
 		for (Length unit : Length.values()){
 			unit1.addItem(unit);
 			unit2.addItem(unit);
 		}
-		
+
 		//Adding panels
 		panel1.add(input1);
 		panel1.add(unit1);
@@ -81,7 +81,7 @@ public class ConverterUI  {
 		panel1.add(clear);
 		panel2.add(leftToRight);
 		panel2.add(rightToLeft);
-		
+
 		//Adding radio group
 		radioGroup.add(leftToRight);
 		radioGroup.add(rightToLeft);
@@ -90,7 +90,7 @@ public class ConverterUI  {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel2,BorderLayout.SOUTH);
 		frame.pack();
-		
+
 		//Adding buttons
 		ButtonListener converter = new ButtonListener();
 		ActionListener clearing = new ClearListener();
@@ -98,9 +98,9 @@ public class ConverterUI  {
 		input1.addActionListener(converter);
 		input2.addActionListener(converter);
 		clear.addActionListener(clearing);
-	
+
 	}
-	
+
 	/**
 	 * Calling unitconverter and initComponents() 
 	 * @param converter
@@ -110,15 +110,14 @@ public class ConverterUI  {
 		frame = new JFrame("Length converter");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initComponents();
-		
+
 	}
 
-	
+
 	/**
 	 * Make it visible when launching the program.
 	 */
-	public void run()
-	{
+	public void run(){
 		frame.setVisible(true);
 	}
 
@@ -147,8 +146,7 @@ public class ConverterUI  {
 	 * @author Theeeruth Borisuth
 	 *
 	 */
-	public class ButtonListener implements ActionListener
-	{
+	public class ButtonListener implements ActionListener{
 		double amount = 0 ;
 		Unit fromUnit ;
 		Unit toUnit ;
@@ -179,12 +177,10 @@ public class ConverterUI  {
 	 * @author Theeruth Borisuth
 	 *
 	 */
-	public class ClearListener implements ActionListener
-	{
+	public class ClearListener implements ActionListener{
 
 		@Override
-		public void actionPerformed(ActionEvent event) 
-		{	
+		public void actionPerformed(ActionEvent event) {	
 			//set empty text to both fields.
 			input1.setText("");
 			input2.setText("");
